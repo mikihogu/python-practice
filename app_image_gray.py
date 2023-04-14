@@ -4,7 +4,8 @@ import PIL.Image
 import PIL.ImageTk
 
 def dispPhoto(path):
-    newImage = PIL.Image.open(path).resize((300, 300))
+    # 画像を読み込んでグレースケールに変換
+    newImage = PIL.Image.open(path).convert("L").resize((300, 300))
     imageData = PIL.ImageTk.PhotoImage(newImage)
     imageLabel.configure(image = imageData)
     imageLabel.image = imageData
